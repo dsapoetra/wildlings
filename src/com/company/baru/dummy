@@ -1,0 +1,65 @@
+Makhluk[] lion = new Singa[10];
+		int x;
+		for (int count = 0; count<10; count++){
+			lion[count] = new Singa(0,0,1,-1);
+		}
+		HashMap<Integer, Makhluk> hm = new HashMap<Integer, Makhluk>();
+		int num = -1;
+		System.out.println(lion[1].GetId());
+		Makhluk dummy2 = new Singa(0,0,1,-1);
+		while (num < 0)
+		{
+			System.out.print("Insert number : ");
+			Scanner in = new Scanner(System.in);
+			num = in.nextInt();
+		}
+		Random random = new Random();
+		System.out.println("Here's random :");
+		System.out.println(random.nextInt((num%6 + 2) + 1));
+		System.out.println(random.nextInt((num%6 + 2) + 1));
+		System.out.println(random.nextInt((num%6 + 2) + 1));
+		System.out.println(random.nextInt((num%6 + 2) + 1));
+		for (int i = 0; i<num*num; i++){
+			hm.put(i,dummy2);
+		}
+		Set set = hm.entrySet();
+		Iterator i = set.iterator();
+		/*while(i.hasNext()) {
+			Map.Entry me = (Map.Entry)i.next();
+			//System.out.print(me.getKey() + ": ");
+			Makhluk value = (Makhluk) me.getValue();
+			System.out.println(value.GetId());
+		}*/
+
+		for (int j=0;j<num;j++){
+			for (int k =0;k<num;k++){
+				if (hm.get(k).GetId() == -1){
+					System.out.print('*');
+				}
+			}
+			System.out.println();
+		}
+		/*System.out.println("--------- Singa -------");
+		Makhluk Si = new Singa();
+		System.out.println("--------- Serigala -------");
+		Makhluk Sr = new Serigala();
+		System.out.println("--------- Kuda -------");
+		Makhluk K = new Kuda();
+		System.out.println("--------- Jerapah -------");
+		Makhluk J = new Jerapah();
+		System.out.println("--------- Wortel -------");
+		Makhluk W = new Wortel();
+		System.out.println("--------- Rumput -------");
+		Makhluk R = new Rumput();
+		ArrayList<Makhluk> Al = new ArrayList<Makhluk>();
+		Al.add(Si);
+		System.out.println("Contents of al: " + Al);
+
+		hm.put(3,Sr);
+		Makhluk value = hm.get(1);
+		if (value != null) {
+			System.out.println(hm.get(1).GetPower());
+		} else {
+			// No such key
+			System.out.println("kosong");
+		}*/

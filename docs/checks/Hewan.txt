@@ -1,0 +1,13 @@
+Starting audit...
+[WARN] /Users/dimassaputra/Code/oop/2015-2/wildlings/src/com/company/baru/Hewan.java:2: 'CLASS_DEF' should be separated from previous statement. [EmptyLineSeparator]
+[WARN] /Users/dimassaputra/Code/oop/2015-2/wildlings/src/com/company/baru/Hewan.java:3:1: Line contains a tab character. [FileTabCharacter]
+[WARN] /Users/dimassaputra/Code/oop/2015-2/wildlings/src/com/company/baru/Hewan.java:4: 'member def modifier' have incorrect indentation level 8, expected level should be 2. [Indentation]
+[WARN] /Users/dimassaputra/Code/oop/2015-2/wildlings/src/com/company/baru/Hewan.java:4:1: Line contains a tab character. [FileTabCharacter]
+[WARN] /Users/dimassaputra/Code/oop/2015-2/wildlings/src/com/company/baru/Hewan.java:4:23: Member name 'ArahGerak' must match pattern '^[a-z][a-z0-9][a-zA-Z0-9]*$'. [MemberName]
+[WARN] /Users/dimassaputra/Code/oop/2015-2/wildlings/src/com/company/baru/Hewan.java:6:1: Line contains a tab character. [FileTabCharacter]
+[WARN] /Users/dimassaputra/Code/oop/2015-2/wildlings/src/com/company/baru/Hewan.java:7: 'method def modifier' have incorrect indentation level 8, expected level should be 2. [Indentation]
+[WARN] /Users/dimassaputra/Code/oop/2015-2/wildlings/src/com/company/baru/Hewan.java:7:1: Line contains a tab character. [FileTabCharacter]
+[WARN] /Users/dimassaputra/Code/oop/2015-2/wildlings/src/com/company/baru/Hewan.java:8: 'METHOD_DEF' should be separated from previous statement. [EmptyLineSeparator]
+[WARN] /Users/dimassaputra/Code/oop/2015-2/wildlings/src/com/company/baru/Hewan.java:8: 'method def modifier' have incorrect indentation level 8, expected level should be 2. [Indentation]
+[WARN] /Users/dimassaputra/Code/oop/2015-2/wildlings/src/com/company/baru/Hewan.java:8:1: Line contains a tab character. [FileTabCharacter]
+Audit done.

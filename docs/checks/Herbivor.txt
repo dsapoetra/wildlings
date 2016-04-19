@@ -1,0 +1,6 @@
+Starting audit...
+[WARN] /Users/dimassaputra/Code/oop/2015-2/wildlings/src/com/company/baru/Herbivor.java:4:1: Line contains a tab character. [FileTabCharacter]
+[WARN] /Users/dimassaputra/Code/oop/2015-2/wildlings/src/com/company/baru/Herbivor.java:5: 'method def modifier' have incorrect indentation level 8, expected level should be 2. [Indentation]
+[WARN] /Users/dimassaputra/Code/oop/2015-2/wildlings/src/com/company/baru/Herbivor.java:5:1: Line contains a tab character. [FileTabCharacter]
+[WARN] /Users/dimassaputra/Code/oop/2015-2/wildlings/src/com/company/baru/Herbivor.java:5:30: Method name 'Pass' must match pattern '^[a-z][a-z0-9][a-zA-Z0-9_]*$'. [MethodName]
+Audit done.
