@@ -1,9 +1,17 @@
-package com.company.baru;
+package com.company.baru.creatures;
 public abstract class Karnivor extends Hewan {
 	/* methods */
-	public abstract void fight();
+    public Karnivor(){
+        super();
+    }
 
-    @Override
+    public Karnivor(int powerx, int posisiXx, int usiax, char repx, int arahGerak){
+        super(powerx, posisiXx, usiax, repx, arahGerak);
+    }
+
+    public abstract void fight();
+
+   /* @Override
     public void move(int num) {
         switch(ArahGerak){
             case 1:
@@ -32,5 +40,5 @@ public abstract class Karnivor extends Hewan {
                 break;
             // this_thread::sleep_for(chrono::milliseconds(2000));
         }
-    }
+    }*/
 }
