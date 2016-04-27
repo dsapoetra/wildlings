@@ -1,9 +1,10 @@
 package com.company.baru;
 
-import com.company.baru.creatures.Hewan;
-import com.company.baru.creatures.Makhluk;
+import com.company.baru.creatures.*;
 import com.company.baru.exception.MoveException;
+import com.company.baru.factory.HerbivorFactory;
 import com.company.baru.factory.KarnivorFactory;
+import com.company.baru.factory.TumbuhanFactory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,6 +18,7 @@ public class MakhlukThread extends Thread {
 
     private final HashMap<Integer, Makhluk> world;
     private final Makhluk makhluk;
+    public static final int num = 10;
 
     public MakhlukThread(Makhluk makhluk, HashMap<Integer, Makhluk> world) {
         this.makhluk = makhluk;
@@ -34,8 +36,9 @@ public class MakhlukThread extends Thread {
                 if (makhluk instanceof Hewan) {
                     Hewan hewan = (Hewan)makhluk;
                     try {
+
                         int oldPosition = hewan.getPosisiX();
-                        hewan.move(10);
+                        hewan.move(num);
                         System.out.println(makhluk.getId() + " moved to " + makhluk.getPosisiX());
                         int newPosition = hewan.getPosisiX();
                         // update world
@@ -57,6 +60,9 @@ public class MakhlukThread extends Thread {
                         e.printStackTrace();
                     }
                 }
+                else {
+
+                }
             } catch (InterruptedException e) {
                 break;
             }
@@ -64,11 +70,16 @@ public class MakhlukThread extends Thread {
     }
 
     public static void main(String[] Args) {
+        Makhluk dummy = new Singa(0,0,-1);
+
+
         List<Makhluk> makhluks = new ArrayList<>();
-        KarnivorFactory factory = new KarnivorFactory();
+        KarnivorFactory karnivorFactory = new KarnivorFactory();
+        HerbivorFactory herbivorFactory = new HerbivorFactory();
+        TumbuhanFactory tumbuhanFactory = new TumbuhanFactory();
         String[] namaMakhluk = {"singa", "serigala"};
         for (int i = 0; i < 10; ++i) {
-            makhluks.add(factory.getKarnivor(namaMakhluk[i % 2], i * 10, 1, i));
+            makhluks.add(karnivorFactory.getKarnivor(namaMakhluk[i % 2], i * 10, 1, i));
         }
 
         HashMap<Integer, Makhluk> world = new HashMap<>();
@@ -77,5 +88,7 @@ public class MakhlukThread extends Thread {
             MakhlukThread thread = new MakhlukThread(makhluk, world);
             thread.start();
         }
+
+
     }
 }

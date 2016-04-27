@@ -5,100 +5,80 @@ package com.company.baru.creatures;
  */
 
 public class Rumput extends Tumbuhan {
-	/* data member */
-	private int Id;
-	public  Rumput() {
-		super();
-		Id = 1;
+    /* data member */
+    private int Id;
 
+    public Rumput() {
+        super();
+        Id = 1;
+    }
 
-		//System.out.println("Power :"+Power+" Usia : "+Usia+" Posisi :"+PosisiX+" PosisiY :"+PosisiY+" Id: "+Id);
-		//System.out.println("ctor");
-	}
-	public Rumput(int posisiXx, int Id){
-		super(6,4,posisiXx, 'R');
-		//  ArahGerak = _ArahGerak;
-		this.Id = Id;
-		//rep = 'W';
-		assert (Id >0);
+    public Rumput(int posisiXx, int Id) {
+        super(6, 4, posisiXx, 'R');
+        this.Id = Id;
+        assert (Id > 0);
+    }
 
-		//System.out.println("Power :"+Power+" Usia:"+Usia+"Posisi :"+PosisiX+"Id: "+Id);
-		//System.out.println("ctor by parameter");
-	}
-	/* getter */
-	public int getId() {
-		return Id;
-	}
+    public static void main(String[] args) {
+        Makhluk R = new Rumput();
+    }
 
-	public int getUsia() {
-		return super.getUsia();
-	}
+    /* getter */
+    public int getId() {
+        return Id;
+    }
 
-	public int getPosisiX() {
-		return super.getPosisiX();
-	}
+    public int getUsia() {
+        return super.getUsia();
+    }
 
-    /*public int getPosisiY() {
-        return super.getPosisiY();
-    }*/
+    public void setUsia(int decreaser) {
+        super.setUsia(super.getUsia() - decreaser);
+    }
 
+    public int getPosisiX() {
+        return super.getPosisiX();
+    }
 
-	public int GetPower() {
-		return super.getPower();
-	}
+    public int GetPower() {
+        return super.getPower();
+    }
 
-	/* setter */
-	public void SetPosisiX(int _PosisiX) {
-		super.setPosisiX(_PosisiX);
-	}
+    /* setter */
+    public void SetPosisiX(int _PosisiX) {
+        super.setPosisiX(_PosisiX);
+    }
 
-   /* public void SetPosisiY(int _PosisiY) {
-        super.setPosisiY();
-    }*/
+    public void seed() {
 
+    }
 
-	public void setUsia(int decreaser) {
-		super.setUsia(super.getUsia() - decreaser);
-	}
-	public void Seed(){
+    public void kill() {
+        System.out.println("Dummy kill, will implement thread to invoke other Makhluk destruct()");
+    }
 
-	}
+    public void destruct() {
+        //only implement death by age
+        if (super.getUsia() == 0) {
+            // destructor Singa
+            System.gc();
+            try {
 
-	public void kill() {
-		System.out.println("Dummy kill, will implement thread to invoke other Makhluk destruct()");
-	}
+                finalize();
+            } catch (Throwable throwable) {
+                throwable.printStackTrace();
+            }
+        }
+    }
 
-	public void destruct() {
-		//only implement death by age
-		if (super.getUsia() == 0) {
-			// destructor Singa
-			System.gc();
-			try {
+    public void SetRep(char _rep) {
+        if (super.getUsia() <= 0) {
+            super.setRep('*');
+        }
+    }
 
-				finalize();
-			} catch (Throwable throwable) {
-				throwable.printStackTrace();
-			}
-		}
-	}
-
-	public void SetRep(char _rep) {
-		if (super.getUsia() <= 0) {
-			super.setRep('*');
-		}
-	}
-
-	public char GetRep() {
-		return super.getRep() ;
-	}
-	/* unit test */
-
-	/*public static void main(String[] args) {
-		Makhluk W = new Wortel(2,2,-6);
-	}*/
-
-	public static void main(String[] args) {
-		Makhluk R = new Rumput();
-	}
+    public char GetRep() {
+        return super.getRep();
+    }
 
 }
