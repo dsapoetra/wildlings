@@ -1,17 +1,18 @@
 /**
- * * Domain classes used to produce .....
+ * * Domain classes used to produce
  * <p>
- * These classes contain the ......
+ * These classes contain the
  * </p>
  *
  * @author somebody
  * @version 1.0
  * @since 1.0
  */
-
 package com.company.baru.creatures;
 
 /**
+ * Class that represent Makhluk.
+ * Base of everything.
  * @author dimassaputra.
  */
 public abstract class Makhluk {
@@ -64,7 +65,7 @@ public abstract class Makhluk {
     }
 
     /**
-     *
+     * get position where one creature is.
      * @return position where one creature is.
      */
     public int getPosisiX() {
@@ -72,8 +73,9 @@ public abstract class Makhluk {
     }
 
     /**
-     *
-     * @param posisiX
+     * a new position of one creature,
+     *                be careful not to set outside the world.
+     * @param posisiX int.
      * a new position of one creature,
      *                be careful not to set outside the world.
      */
@@ -82,8 +84,9 @@ public abstract class Makhluk {
     }
 
     /**
-     *
-     * @return power of one creature,
+     *power of one creature,
+     * useful for determine species.
+     * @return int power of one creature,
      * useful for determine species.
      */
     public int getPower() {
@@ -91,7 +94,8 @@ public abstract class Makhluk {
     }
 
     /**
-     *
+     *determine whether,
+     * setRep should be called or not.
      * @return usia, determine whether,
      * setRep should be called or not.
      */
@@ -100,8 +104,9 @@ public abstract class Makhluk {
     }
 
     /**
-     *
-     * @param usia
+     *Set usia(age) of creature, please decrement,
+     * by time going.
+     * @param usia int
      * Set usia(age) of creature, please decrement,
      * by time going.
      */
@@ -110,13 +115,13 @@ public abstract class Makhluk {
     }
 
     /**
-     *
+     * Get id.
      * @return Id of all creatures
      */
     public abstract int getId();
 
     /**
-     *
+     * representation of one creature.
      * @return char representation of one creature.
      */
     public char getRep() {
@@ -124,7 +129,8 @@ public abstract class Makhluk {
     }
 
     /**
-     *
+     * new char that will be shown to world,
+     *             remember to change to '*' when age =0.
      * @param rep
      * new char that will be shown to world,
      *             remember to change to '*' when age =0.
@@ -134,6 +140,7 @@ public abstract class Makhluk {
     }
 
     /**
+     * Kill
      * @param NULL
      */
     public abstract void kill();

@@ -14,6 +14,9 @@ package com.company.baru.creatures;
 import com.company.baru.exception.MoveException;
 
 /**
+ * Class that represent hewan.
+ *  * All hewan(animal) can move,
+ * so they have to move at a direction (arahgerak).
  * @author dimassaputra
  */
 public abstract class Hewan extends Makhluk {
@@ -46,7 +49,7 @@ public abstract class Hewan extends Makhluk {
     }
 
     /**
-     *
+     * show where creature will move.
      * @return int arahgerak, show where creature will move.
      */
     public int getArahGerak() {
@@ -54,7 +57,7 @@ public abstract class Hewan extends Makhluk {
     }
 
     /**
-     *
+     * set new arahgerak.
      * @param arahGerak int set new arahgerak.
      */
     public void setArahGerak(int arahGerak) {
@@ -63,6 +66,7 @@ public abstract class Hewan extends Makhluk {
     }
 
     /**
+     * is direction to where this animal willmove.
      * @param num is direction to where this animal willmove.
      * @throws MoveException move exception.
      */
@@ -72,5 +76,5 @@ public abstract class Hewan extends Makhluk {
      * this will group animal, please implement later.
      * TODO : implement this
      */
-    public abstract void grouping();
+    public abstract void grouping(Hewan H);
 }

@@ -1,61 +1,117 @@
+/**
+ * * Domain classes used to produce .....
+ * <p>
+ * These classes contain the ......
+ * </p>
+ *
+ * @author somebody
+ * @version 1.0
+ * @since 1.0
+ */
 package com.company.baru.creatures;
 
 import com.company.baru.exception.MoveException;
 
 /**
  * Class that represent serigala
+ * @author dimassaputra
  */
 public class Serigala extends Karnivor {
-    /* data member */
+    /**
+     * id that differ from one creature and another.
+     */
     private int id;
 
-    /* constructor */
+    /**
+     * Default constructor.
+     */
     public Serigala() {
         super();
         id = 1;
     }
 
-    public Serigala(int posisiXx, int arahGerak, int _Id) {
+    /**
+     * Constructor with parameter.
+     * Power, usia, rep, is default for Singa.
+     * @param posisiXx int
+     * @param arahGerak int
+     * @param id int
+     */
+    public Serigala(int posisiXx, int arahGerak, int id) {
         super(9, posisiXx, 9, 's', arahGerak);
-        id = _Id;
+        this.id = id;
     }
 
-    /* getter */
+    /**
+     * Just to get id.
+     * @return int
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Get usia.
+     * @return int
+     */
     public int getUsia() {
         return super.getUsia();
     }
 
+    /**
+     * decrease usia of serigala,
+     * as much as decreaser.
+     * @param decreaser int
+     */
     public void setUsia(int decreaser) {
         super.setUsia(super.getUsia() - decreaser);
     }
 
+    /**
+     * Get serigala posisition.
+     * @Override
+     * @return int
+     */
     public int getPosisiX() {
         return super.getPosisiX();
     }
 
+    /**
+     *  Get where serigala is heading.
+     * @return int
+     */
     public int getArahGerak() {
         return super.getArahGerak();
     }
 
-    public int GetPower() {
+    /**
+     * Get power of serigala,
+     * Useful for polymorphism.
+     * @return int
+     */
+    public int getPower() {
         return super.getPower();
     }
 
-    /* setter */
-    public void SetPosisiX(int _PosisiX) {
-        super.setPosisiX(_PosisiX);
-    }
-
-    public void SetArahGerak(int _ArahGerak) {
-        super.setArahGerak(_ArahGerak);
+    /**
+     *
+     * @param posisiX int.
+     *      a new position of one creature,
+     */
+    public void setPosisiX(int posisiX) {
+        super.setPosisiX(posisiX);
     }
 
     /**
-     * @param num
+     *
+     * @param arahGerak int set new arahgerak.
+     */
+    public void setArahGerak(int arahGerak) {
+        super.setArahGerak(arahGerak);
+    }
+
+    /**
+     * @param num int
      */
     /* methods */
     //@Override
@@ -86,6 +142,8 @@ public class Serigala extends Karnivor {
             case -4:
                 super.setPosisiX(super.getPosisiX() + num - 1);
                 break;
+            default:
+                super.setPosisiX(super.getPosisiX());
         }
         if (this.getPosisiX() > num * num) {
             this.setPosisiX(temp);
@@ -94,40 +152,50 @@ public class Serigala extends Karnivor {
         }
     }
 
+    /**
+     * method fight.
+     */
     public void fight() {
         System.out.println("will implemented with Serigala class using thread");
     }
 
-    public void grouping() {
+    /**
+     * Method grouping.
+     */
+    public void grouping(Hewan H) {
         System.out.println("will implemented with thread later");
     }
 
+    /**
+     * TODO : ubah dikit.
+     */
     public void kill() {
         System.out.println("Dummy kill, will implement thread to invoke other Makhluk destruct()");
     }
 
+    /**
+     * TODO : ubah dikit biar auto setrep.
+     */
     public void destruct() {
-        //System.out.println("serigala " + this.getId() + " just died");
-        //only implement death by age
-        if (super.getUsia() == 0) {
-            // destructor Singa
-            System.gc();
-            try {
-
-                finalize();
-            } catch (Throwable throwable) {
-                throwable.printStackTrace();
-            }
-        }
+        setRep('*');
     }
 
-    public void SetRep(char _rep) {
+    /**
+     *
+     * @param rep char
+     * new char that will be shown to world,
+     */
+    public void setRep(char rep) {
         if (super.getUsia() <= 0) {
-            super.setRep('*');
+            super.setRep(rep);
         }
     }
 
-    public char GetRep() {
+    /**
+     *  get rep of serigala.
+     * @return char
+     */
+    public char getRep() {
         return super.getRep();
     }
 

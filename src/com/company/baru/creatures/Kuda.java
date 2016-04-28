@@ -2,66 +2,112 @@ package com.company.baru.creatures;
 
 import com.company.baru.exception.MoveException;
 
+/**
+ * class that represent Kuda.
+ * @author dimassaputra
+ */
 public class Kuda extends Herbivor {
-    /* data member */
+    /**
+     * Id of kuda.
+     */
     private int id;
 
-    /* constructor */
+    /**
+     * Default constructor
+     */
     public Kuda() {
         super();
         id = 1;
-        //System.out.println("Power :"+Power+" Usia : "+Usia+" Posisi :"+PosisiX+" PosisiY :"+PosisiY+" ArahGerak: "+ArahGerak+" Id: "+Id);
-        //System.out.println("ctor");
     }
 
-    public Kuda(int posisiXx, int arahGerak, int _Id) {
+    /**
+     * Constructor with parameter.
+     * power,age, rep is default.
+     * @param posisiXx
+     * @param arahGerak
+     * @param id
+     */
+    public Kuda(int posisiXx, int arahGerak, int id) {
         super(7, posisiXx, 7, 'K', arahGerak);
-        id = _Id;
-
-        //System.out.println("Power :"+Power+" Usia : "+Usia+" Posisi :"+PosisiX+" PosisiY :"+PosisiY+" ArahGerak: "+ArahGerak+" Id: "+Id);
-        //System.out.println("ctor by parameter");
+        this.id = id;
     }
 
-    /* getter */
+    /**
+     *
+     * @return int id.
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     *
+     * @return int, the age.
+     */
     public int getUsia() {
         return super.getUsia();
     }
 
+    /**
+     *
+     * @param decreaser int.
+     *                  Decrease usia as much as decreaser.
+     */
     public void setUsia(int decreaser) {
         super.setUsia(super.getUsia() - decreaser);
     }
 
+    /**
+     *
+     * @return int.
+     * The current position of this.
+     */
     @Override
     public int getPosisiX() {
         return super.getPosisiX();
     }
 
+    /**
+     *
+     * @return int arahgerak.
+     * the direction of this.
+     */
     public int getArahGerak() {
         return super.getArahGerak();
     }
 
-    public int GetPower() {
+    /**
+     * get the power,useful for determine species.
+     * @return int
+     */
+    public int getPower() {
         return super.getPower();
     }
 
 
-    /* setter */
-    public void SetPosisiX(int _PosisiX) {
-        super.setPosisiX(_PosisiX);
-    }
-
-    public void SetArahGerak(int _ArahGerak) {
-        super.setArahGerak(_ArahGerak);
+    /**
+     *
+     * @param posisiX int.
+     *                new position of singa.
+     */
+    public void setPosisiX(int posisiX) {
+        super.setPosisiX(posisiX);
     }
 
     /**
-     * @param num
+     *
+     * @param arahGerak int
+     *                  Set new direction.
      */
-    /* methods */
+    public void setArahGerak(int arahGerak) {
+        super.setArahGerak(arahGerak);
+    }
+
+    /**
+     * @param num int.
+     *            move by number of column of the world.
+     *
+     */
     //@Override
     public void move(int num) throws MoveException {
         int temp = this.getPosisiX();
@@ -90,6 +136,8 @@ public class Kuda extends Herbivor {
             case -4:
                 super.setPosisiX(super.getPosisiX() + num - 1);
                 break;
+            default:
+                super.setPosisiX(super.getPosisiX());
         }
         if (this.getPosisiX() > num * num) {
             this.setPosisiX(temp);
@@ -98,21 +146,33 @@ public class Kuda extends Herbivor {
         }
     }
 
-    public void Pass() {
+    /**
+     * pass other herbivor.
+     */
+    public void pass() {
         System.out.println("will implemented with Serigala class using thread");
     }
 
-    public void grouping() {
-        System.out.println("will implemented with thread later");
+    /**
+     * group with same species.
+     */
+    public void grouping(Hewan H) {
+        setArahGerak(H.getArahGerak());
     }
 
+    /**
+     * kill.
+     */
     public void kill() {
         System.out.println("Dummy kill, will implement thread to invoke other Makhluk destruct()");
     }
 
+    /**
+     * destruct. TODO: auto setrep.
+     */
     public void destruct() {
         //only implement death by age
-        if (super.getUsia() == 0) {
+       /* if (super.getUsia() == 0) {
             // destructor Singa
             System.gc();
             try {
@@ -121,16 +181,25 @@ public class Kuda extends Herbivor {
             } catch (Throwable throwable) {
                 throwable.printStackTrace();
             }
-        }
+        }*/
+        setRep('*');
     }
 
-    public void SetRep(char _rep) {
+    /**
+     *
+     * @param rep char.
+     */
+    public void setRep(char rep) {
         if (super.getUsia() <= 0) {
-            super.setRep('*');
+            super.setRep(rep);
         }
     }
 
-    public char GetRep() {
+    /**
+     *
+     * @return char, the rep.
+     */
+    public char getRep() {
         return super.getRep();
     }
 

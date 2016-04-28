@@ -13,16 +13,6 @@ public class JerapahTest {
 
     Jerapah J = new Jerapah(2,2,1);
 
-    @Before
-    public void setUp() throws Exception {
-
-    }
-
-    @After
-    public void tearDown() throws Exception {
-
-    }
-
     @Test
     public void testgetId() throws Exception {
         System.out.println("Running testgetID");
@@ -70,34 +60,5 @@ public class JerapahTest {
         J.move(2);
         assertEquals(4,J.getPosisiX());
     }
-/*
-    @Test
-    public void testFight() throws Exception {
 
-    }
-
-    @Test
-    public void testGrouping() throws Exception {
-
-    }
-
-    @Test
-    public void testKill() throws Exception {
-
-    }
-
-    @Test
-    public void testDestruct() throws Exception {
-
-    }
-
-    @Test
-    public void testsetRep() throws Exception {
-
-    }
-
-    @Test
-    public void testgetRep() throws Exception {
-
-    }*/
 }

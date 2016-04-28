@@ -2,70 +2,109 @@ package com.company.baru.creatures;
 
 import com.company.baru.exception.MoveException;
 
+/**
+ * class that represent Jerapah
+ * @author dimassaputra
+ */
 public class Jerapah extends Herbivor {
-    /* data member */
+    /**
+     * Id of jerapah.
+     */
     private int id;
 
-    /* constructor */
+    /**
+     * Default constructor
+     */
     public Jerapah() {
         super();
         id = 1;
-        //System.out.println("Power :"+Power+" Usia : "+Usia+" Posisi :"+PosisiX+" PosisiY :"+PosisiY+" ArahGerak: "+ArahGerak+" Id: "+Id);
-        //System.out.println("ctor");
     }
 
-    public Jerapah(int posisiXx, int arahGerak, int _Id) {
+    /**
+     * Constructor with parameter.
+     * power,age, rep is default.
+     * @param posisiXx
+     * @param arahGerak
+     * @param id
+     */
+    public Jerapah(int posisiXx, int arahGerak, int id) {
         super(8, posisiXx, 7, 'J', arahGerak);
-        id = _Id;
-
-        //System.out.println("Power :"+Power+" Usia : "+Usia+" Posisi :"+PosisiX+" PosisiY :"+PosisiY+" ArahGerak: "+ArahGerak+" Id: "+Id);
-        //System.out.println("ctor by parameter");
+        this.id = id;
     }
 
-    /* getter */
+    /**
+     * get Id.
+     * @return int id.
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * get Usia.
+     * @return int usia.
+     */
     public int getUsia() {
         return super.getUsia();
     }
 
+    /**
+     * Decrease usia.
+     * @param decreaser int.
+     *                  Decrease usia as much as decreaser.
+     */
     public void setUsia(int decreaser) {
         super.setUsia(super.getUsia() - decreaser);
     }
 
-    /*public int getPosisiY() {
-        return super.getPosisiY();
-    }*/
-
+    /**
+     * get posisi.
+     * @return int.
+     */
     public int getPosisiX() {
         return super.getPosisiX();
     }
 
+    /**
+     * get arah gerak.
+     * @return int.
+     */
     public int getArahGerak() {
         return super.getArahGerak();
     }
 
-    public int GetPower() {
+    /**
+     * get power.
+     * @return int.
+     * useful for determine species.
+     */
+    public int getPower() {
         return super.getPower();
     }
 
-   /* public void SetPosisiY(int _PosisiY) {
-        super.setPosisiY();
-    }*/
 
-    /* setter */
-    public void SetPosisiX(int _PosisiX) {
-        super.setPosisiX(_PosisiX);
-    }
-
-    public void SetArahGerak(int _ArahGerak) {
-        super.setArahGerak(_ArahGerak);
+    /**
+     * set posisix
+     * @param posisiX int.
+     *                new position of singa.
+     */
+    public void setPosisiX(int posisiX) {
+        super.setPosisiX(posisiX);
     }
 
     /**
-     * @param num
+     *
+     * @param arahGerak int
+     *                  Set new direction.
+     */
+    public void setArahGerak(int arahGerak) {
+        super.setArahGerak(arahGerak);
+    }
+
+    /**
+     * @param num int.
+     *            move by number of column of the world.
+     *
      */
     /* methods */
     //@Override
@@ -73,40 +112,32 @@ public class Jerapah extends Herbivor {
         int temp = this.getPosisiX();
         switch (super.getArahGerak()) {
             case 1:
-                //PosisiX = PosisiX + 1;
                 super.setPosisiX(super.getPosisiX() + 1);
                 break;
             case 2:
-                //PosisiX = PosisiX + num;
                 super.setPosisiX(super.getPosisiX() + num);
                 break;
             case 3:
-                //PosisiX = PosisiX + num + 1;
                 super.setPosisiX(super.getPosisiX() + 1 + num);
                 break;
             case 4:
-                //PosisiX = PosisiX - num - 1;
                 super.setPosisiX(super.getPosisiX() - 1 - num);
                 break;
             case -1:
-                //PosisiX = PosisiX - 1;
                 super.setPosisiX(super.getPosisiX() - 1);
                 break;
             case -2:
-                // PosisiX = PosisiX - num;
                 super.setPosisiX(super.getPosisiX() - num);
                 break;
             case -3:
-                //PosisiX = PosisiX - num + 1;
                 super.setPosisiX(super.getPosisiX() - num + 1);
                 break;
             case -4:
-                //PosisiX = PosisiX + num - 1;
                 super.setPosisiX(super.getPosisiX() + num - 1);
                 break;
-            // this_thread::sleep_for(chrono::milliseconds(2000));
+            default:
+                super.setPosisiX(super.getPosisiX());
         }
-        //assert (super.getPosisiX() <= num * num) : "woy";
         if (this.getPosisiX() > num * num) {
             this.setPosisiX(temp);
             this.setRep('*');
@@ -114,45 +145,49 @@ public class Jerapah extends Herbivor {
         }
     }
 
-    public void Pass() {
+    /**
+     * pass other herbivor.
+     */
+    public void pass() {
         System.out.println("will implemented with Serigala class using thread");
     }
 
-    public void grouping() {
-        System.out.println("will implemented with thread later");
+    /**
+     * group with same species.
+     */
+    public void grouping(Hewan H) {
+        setArahGerak(H.getArahGerak());
     }
 
+    /**
+     * kill.
+     */
     public void kill() {
         System.out.println("Dummy kill, will implement thread to invoke other Makhluk destruct()");
     }
 
+    /**
+     * destruct. TODO: auto setrep.
+     */
     public void destruct() {
-        //only implement death by age
-        if (super.getUsia() == 0) {
-            // destructor Singa
-            System.gc();
-            try {
-
-                finalize();
-            } catch (Throwable throwable) {
-                throwable.printStackTrace();
-            }
-        }
+        setRep('*');
     }
 
-    public void SetRep(char _rep) {
+    /**
+     *
+     * @param rep char.
+     */
+    public void setRep(char rep) {
         if (super.getUsia() <= 0) {
-            super.setRep('*');
+            super.setRep(rep);
         }
     }
 
-    public char GetRep() {
+    /**
+     *
+     * @return char, the rep.
+     */
+    public char getRep() {
         return super.getRep();
     }
-    /* unit test */
-	/*
-	public static void main(String[] args) {
-		Makhluk J = new Jerapah();
-	}
-	*/
 }

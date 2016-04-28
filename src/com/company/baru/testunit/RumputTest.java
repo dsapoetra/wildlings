@@ -14,15 +14,6 @@ public class RumputTest {
 
     Rumput R = new Rumput(2,1);
 
-    @Before
-    public void setUp() throws Exception {
-
-    }
-
-    @After
-    public void tearDown() throws Exception {
-
-    }
 
     @Test
     public void testgetId() throws Exception {
@@ -64,27 +55,6 @@ public class RumputTest {
         assertEquals(3,R.getUsia());
     }
 
-    @Test
-    public void testSeed() throws Exception {
-
-    }
-
-    @Test
-    public void testKill() throws Exception {
-
-    }
-
-    @Test
-    public void testDestruct() throws Exception {
-
-    }
-
-    @Test
-    public void testsetRep() throws Exception {
-        // System.out.println("Running test setrep");
-        //R.setRep('x');
-        //assertEquals('x',R.getRep());
-    }
 
     @Test
     public void testgetRep() throws Exception {

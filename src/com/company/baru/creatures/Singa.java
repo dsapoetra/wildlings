@@ -8,6 +8,7 @@
  * @version 1.0
  * @since 1.0
  */
+
 package com.company.baru.creatures;
 
 
@@ -100,8 +101,8 @@ public class Singa extends Karnivor {
 
     /**
      *
-     * @param posisiX int
-     * a new position of one creature,
+     * @param posisiX int.
+     *      a new position of one creature,
      */
     public final void setPosisiX(int posisiX) {
         super.setPosisiX(posisiX);
@@ -165,7 +166,7 @@ public class Singa extends Karnivor {
     /**
      * Method grouping.
      */
-    public void grouping() {
+    public void grouping(Hewan H) {
         System.out.println("will implemented with thread later");
     }
 
@@ -180,23 +181,13 @@ public class Singa extends Karnivor {
      * TODO : ubah dikit biar auto setrep.
      */
     public void destruct() {
-        //System.out.println("singa " + this.getId() + " just died");
-        //only implement death by age
-        if (super.getUsia() == 0) {
-            // destructor Singa
-            System.gc();
-            try {
 
-                finalize();
-            } catch (Throwable throwable) {
-                throwable.printStackTrace();
-            }
-        }
+        setRep('*');
     }
 
     /**
      *
-     * @param rep shar
+     * @param rep char
      * new char that will be shown to world,
      */
     public void setRep(char rep) {

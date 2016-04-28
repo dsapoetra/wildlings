@@ -1,0 +1,137 @@
+Main.world = new HashMap<Integer, Makhluk>();
+
+		/**
+		 * Get how big Main.world is.
+		 */
+		int num = -1;
+
+		while (num < 0)
+		{
+			System.out.print("Insert number : ");
+			Scanner in = new Scanner(System.in);
+			num = in.nextInt();
+		}
+		Main.num = num;
+
+		/**
+		 * Randomize position available.
+		 * Based on Main.world size.
+		 */
+		LinkedList pos = new LinkedList();
+		for (int i = 1; i<= num*num;i++){
+			pos.add(i);
+		}
+		Collections.shuffle(pos);
+
+		/**
+		 * Randomize number of all creature.
+		 */
+		Random random = new Random();
+		int jumlahSinga = random.nextInt((num%6 + 2) + 1);
+		int jumlahSerigala = random.nextInt((num%6 + 2) + 1);
+		int jumlahKuda = random.nextInt((num%6 + 2) + 1);
+		int jumlahJerapah = random.nextInt((num%6 + 2) + 1);
+		int jumlahWortel = random.nextInt((num%6 + 2) + 1);
+		int jumlahRumput = random.nextInt((num%6 + 2) + 1);
+
+		/**
+		 * Prepare the factory.
+		 */
+		KarnivorFactory karnivorFactory = new KarnivorFactory();
+		HerbivorFactory herbivorFactory = new HerbivorFactory();
+		TumbuhanFactory tumbuhanFactory = new TumbuhanFactory();
+		Makhluk dummy = new Singa(0,0,-1);
+		for (int i = 0; i<num*num; i++){
+			Main.world.put(i,dummy);
+		}
+		/**
+		 * Build all creature,
+		 * PosisiX obtained from Linkedlist pos.
+		 * arahgerak obtained by random.nextint.
+		 */
+		Makhluk[] lion = new Singa[jumlahSinga];
+		int x;
+		for (int count = 0; count<jumlahSinga; count++){
+			System.out.println("lion no "+count);
+			lion[count] = karnivorFactory.getKarnivor("singa", (int) pos.getFirst(), random.nextInt((4 - 1) + 1) + 1,1);
+			//Main thread = new Main(lion[count], Main.world);
+			assert (lion[count].getPosisiX() <= num*num);
+			pos.removeFirst();
+			//thread.start();
+		}
+
+		Makhluk[] wolf = new Serigala[jumlahSerigala];
+		for (int count = 0; count<jumlahSerigala; count++){
+			System.out.println("wolf no "+count);
+			wolf[count] = karnivorFactory.getKarnivor("serigala", (int) pos.getFirst(), random.nextInt((4 - 1) + 1) + 1,1);
+			//Main thread = new Main(wolf[count], Main.world);
+			assert (wolf[count].getPosisiX() <= num*num);
+			pos.removeFirst();
+			//thread.start();
+		}
+
+		Makhluk[] horse = new Kuda[jumlahKuda];
+		for (int count = 0; count<jumlahKuda; count++){
+			System.out.println("horse no "+count);
+			horse[count] = herbivorFactory.getHerbivor("kuda", (int) pos.getFirst(), random.nextInt((4 - 1) + 1) + 1,1);
+			//Main thread = new Main(horse[count], Main.world);
+			assert (horse[count].getPosisiX() <= num*num);
+			pos.removeFirst();
+			//thread.start();
+		}
+
+		Makhluk[] giraffe = new Jerapah[jumlahJerapah];
+		for (int count = 0; count<jumlahJerapah; count++){
+			System.out.println("Giraffe no "+count);
+			giraffe[count] = herbivorFactory.getHerbivor("jerapah", (int) pos.getFirst(), random.nextInt((4 - 1) + 1) + 1,1);
+			//Main thread = new Main(giraffe[count], Main.world);
+			assert (giraffe[count].getPosisiX() <= num*num);
+			pos.removeFirst();
+			//thread.start();
+		}
+
+		Makhluk[] grass = new Rumput[jumlahRumput];
+		for (int count = 0; count<jumlahRumput; count++){
+			System.out.println("Grass no "+count);
+			grass[count] = tumbuhanFactory.getTumbuhan("rumput", (int) pos.getFirst(),1);
+			assert (grass[count].getPosisiX() <= num*num);
+			pos.removeFirst();
+		}
+
+		Makhluk[] carrot = new Wortel[jumlahWortel];
+		for (int count = 0; count<jumlahWortel; count++){
+			System.out.println("Carrot no "+count);
+			carrot[count] =  tumbuhanFactory.getTumbuhan("wortel", (int) pos.getFirst(),1);
+			assert (carrot[count].getPosisiX() <= num*num);
+			pos.removeFirst();
+		}
+
+
+		/**
+		 * Putting creature to Main.world.
+		 */
+
+
+		for (int i = 0; i<jumlahSinga; i++){
+			Main.world.put(lion[i].getPosisiX(),lion[i]);
+		}
+
+		for (int i = 0; i<jumlahSerigala; i++){
+			Main.world.put(wolf[i].getPosisiX(),wolf[i]);
+		}
+
+		for (int i = 0; i<jumlahKuda; i++){
+			Main.world.put(horse[i].getPosisiX(),horse[i]);
+		}
+
+		for (int i = 0; i<jumlahJerapah; i++){
+			Main.world.put(giraffe[i].getPosisiX(),giraffe[i]);
+		}
+
+		for (int i = 0; i<jumlahRumput; i++){
+			Main.world.put(grass[i].getPosisiX(),grass[i]);
+		}
+
+		for (int i = 0; i<jumlahWortel; i++){
+			Main.world.put(carrot[i].getPosisiX(),carrot[i]);
+		}

@@ -14,15 +14,6 @@ public class SingaTest {
 
     Singa S = new Singa(2,2,1);
 
-    @Before
-    public void setUp() throws Exception {
-
-    }
-
-    @After
-    public void tearDown() throws Exception {
-
-    }
 
     @Test
     public void testgetId() throws Exception {
@@ -73,33 +64,4 @@ public class SingaTest {
         assertEquals(4,S.getPosisiX());
     }
 
-    @Test
-    public void testFight() throws Exception {
-
-    }
-
-    @Test
-    public void testGrouping() throws Exception {
-
-    }
-
-    @Test
-    public void testKill() throws Exception {
-
-    }
-
-    @Test
-    public void testDestruct() throws Exception {
-
-    }
-
-    @Test
-    public void testsetRep() throws Exception {
-
-    }
-
-    @Test
-    public void testgetRep() throws Exception {
-
-    }
 }

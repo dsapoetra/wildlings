@@ -14,16 +14,6 @@ public class SerigalaTest {
 
     Serigala S = new Serigala(2,2,1);
 
-    @Before
-    public void setUp() throws Exception {
-
-    }
-
-    @After
-    public void tearDown() throws Exception {
-
-    }
-
     @Test
     public void testgetId() throws Exception {
         System.out.println("Running testgetID");
@@ -72,33 +62,4 @@ public class SerigalaTest {
         assertEquals(4,S.getPosisiX());
     }
 
-    @Test
-    public void testFight() throws Exception {
-
-    }
-
-    @Test
-    public void testGrouping() throws Exception {
-
-    }
-
-    @Test
-    public void testKill() throws Exception {
-
-    }
-
-    @Test
-    public void testDestruct() throws Exception {
-
-    }
-
-    @Test
-    public void testsetRep() throws Exception {
-
-    }
-
-    @Test
-    public void testgetRep() throws Exception {
-
-    }
 }

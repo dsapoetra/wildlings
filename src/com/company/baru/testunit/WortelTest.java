@@ -13,15 +13,6 @@ import static org.junit.Assert.*;
 public class WortelTest {
     Wortel W = new Wortel(2,1);
 
-    @Before
-    public void setUp() throws Exception {
-
-    }
-
-    @After
-    public void tearDown() throws Exception {
-
-    }
 
     @Test
     public void testgetId() throws Exception {
@@ -63,27 +54,6 @@ public class WortelTest {
         assertEquals(5,W.getUsia());
     }
 
-    @Test
-    public void testSeed() throws Exception {
-
-    }
-
-    @Test
-    public void testKill() throws Exception {
-
-    }
-
-    @Test
-    public void testDestruct() throws Exception {
-
-    }
-
-    @Test
-    public void testsetRep() throws Exception {
-       // System.out.println("Running test setrep");
-        //W.setRep('x');
-        //assertEquals('x',W.getRep());
-    }
 
     @Test
     public void testgetRep() throws Exception {

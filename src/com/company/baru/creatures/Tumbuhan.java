@@ -12,6 +12,9 @@
 package com.company.baru.creatures;
 
 /**
+ * Class that represent tumbuhan
+ * * Obviously Tumbuhan(plant), can't move
+ * So they don't have move or arahgerak.
  * @author dimassaputra
  */
 public abstract class Tumbuhan extends Makhluk {

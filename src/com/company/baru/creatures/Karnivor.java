@@ -12,6 +12,7 @@
 package com.company.baru.creatures;
 
 /**
+ * Class that represent karnivor.
  * @author dimassaputra
  */
 public abstract class Karnivor extends Hewan {
